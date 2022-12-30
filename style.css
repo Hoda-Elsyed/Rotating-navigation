@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); 
+*{
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #333;
+    /* width: 100%; */
+} 
+.container{
+    /* position: relative; */
+    background-color: white;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 6rem 3rem;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+}
+.rotating-container{
+    max-width: 1000px;
+    margin-inline: auto;
+}
+small{color: #555;}
+p{
+    line-height: 1.5;
+    color: #333;
+}
+
+img{
+    width: 100%;
+}
+h1{
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+}
+.circular{
+    position: fixed;
+    top: -100px;
+    left: -100px;
+
+}
+.circle{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ff7979;
+    transition: 0.3s linear;
+}
+
+
+
+.circle button{
+    cursor: pointer;
+    font-size: 1.7rem;
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transition: 0.5s;
+    border: 0;
+    background-color: transparent;
+    height: 100px;
+
+}
+#hamburger{
+    left: 60%;
+}
+#close{
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+.menu{
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    /* z-index: -1; */
+}
+ul{
+    margin: 0;
+    padding-left: 30px;
+    list-style: none;
+}
+li{
+    color: white;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    transform: translateX(-100%);
+    transition: 0.5s;
+ }
+ li i{
+    margin-right: 10px;
+ }
+ ul>*+*{
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+ul>*+*+*{
+    margin-left: 30px;
+    transform: translateX(-200%);
+ }
+
+ .container.active{
+    transform: rotate(-20deg);
+   
+}
+.container.active + .menu li{
+    transform: translateX(0);
+    transition-delay: 0.5s;
+}
+.container.active  .circle{
+    transform: rotate(-70deg);
+}
+
+@media (max-width: 500px) {
+    .circular{
+        top: -75px;
+        left: -75px;
+    }
+
+ .circle{
+    width: 150px;
+    height: 150px;
+ }    
+ .circle button{
+    top: 60px;
+    left: 60%;
+    font-size: 1.4em;
+ }
+}
